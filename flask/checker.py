@@ -4,9 +4,9 @@ import requests
 import json
 
 
-def get_auth_token(api_key=Config['api_key'],
-                   email=Config['email'],
-                   password=Config['password'],
+def get_auth_token(api_key,
+                   email,
+                   password,
                    scope='checker'):
     ''' Get auth token for API use.
 
@@ -33,7 +33,7 @@ def get_auth_token(api_key=Config['api_key'],
     return(json_['auth_token'])
 
 
-def get_user_profile(auth_token=get_auth_token()):
+def get_user_profile(auth_token):
     ''' Return JSON representation of a user. '''
     params = {'auth_token': auth_token}
     url = 'https://intranet.hbtn.io/users/me.json'
@@ -41,7 +41,7 @@ def get_user_profile(auth_token=get_auth_token()):
     return(result.json())
 
 
-def get_project(project_id, auth_token=get_auth_token(),):
+def get_project(project_id, auth_token):
     ''' Return JSON representation of a project.
 
         Args:
@@ -54,7 +54,7 @@ def get_project(project_id, auth_token=get_auth_token(),):
     return(result.json())
 
 
-def get_tasks(task_id, auth_token=get_auth_token()):
+def get_tasks(task_id, auth_token):
     ''' Return JSON representation of the task with the given ID. '''
     params = {'auth_token': auth_token}
     url = 'https://intranet.hbtn.io/tasks/{}.json'.format(task_id)
@@ -62,7 +62,7 @@ def get_tasks(task_id, auth_token=get_auth_token()):
     return(result.json())
 
 
-def request_correction(task_id, auth_token=get_auth_token()):
+def request_correction(task_id, auth_token):
     ''' Request a correction for the task with the given ID. '''
     params = {'auth_token': auth_token}
     url = 'https://intranet.hbtn.io/tasks/{}/start_correction.json'.format(
@@ -71,7 +71,7 @@ def request_correction(task_id, auth_token=get_auth_token()):
     return(result.json())
 
 
-def get_correction_result(correction_id, auth_token=get_auth_token()):
+def get_correction_result(correction_id, auth_token):
     ''' Get the JSON representation of a correction result given the
     correction's ID. '''
     params = {'auth_token': get_auth_token}
