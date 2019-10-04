@@ -30,7 +30,9 @@ def get_auth_token(api_key,
     url = "https://intranet.hbtn.io/users/auth_token.json"
     result = requests.post(url, params=params)
     json_ = (result.json())
-    return(json_['auth_token'])
+    if json_.get('error'):
+        return None
+    return json_['auth_token']
 
 
 def get_user_profile(auth_token):
