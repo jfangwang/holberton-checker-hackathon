@@ -26,24 +26,24 @@ def get_user_profile():
 
 def get_project(id):
     params = {'auth_token': get_auth_token()}
-    url = f'https://intranet.hbtn.io/projects/{id}.json'
+    url = 'https://intranet.hbtn.io/projects/{}.json'.format(id)
     result = requests.get(url, params=params)
     return(result.json())
 
 def get_tasks(id):
     params = {'auth_token': get_auth_token()}
-    url = f'https://intranet.hbtn.io/tasks/{id}.json'
+    url = 'https://intranet.hbtn.io/tasks/{}.json'.format(id)
     result = requests.get(url, params=params)
     return(result.json())
 
 def request_correction(id):
     params = {'auth_token': get_auth_token()}
-    url = f'https://intranet.hbtn.io/tasks/{id}/start_correction.json'
+    url = 'https://intranet.hbtn.io/tasks/{}/start_correction.json'.format(id)
     result = requests.post(url, params=params)
     return(result.json())
 
 def get_correction_result(id):
     params = {'auth_token': get_auth_token()}
-    url = f'https://intranet.hbtn.io/correction_requests/{id}.json'
+    url = 'https://intranet.hbtn.io/correction_requests/{}.json'.format(id)
     result = requests.get(url, params=params)
     return(result.json())
