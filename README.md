@@ -1,8 +1,11 @@
-#### Requirements:
-* Python 3.4 +
-* Requests Module
+# Checker Daddy
+A Holberton School checker tool.
 
-#### Use:
-* rename sample_config.py to config.py
-* enter your information into config.py
-* import checker.py into your project
+## Requirements
+* Python 3.4+
+* Python Requests Module: `pip3 install requests`
+
+## Usage
+1. Rename `sample_config.py` to `config.py`
+2. Enter your intranet login information into `config.py`
+3. Import `checker` into your project
