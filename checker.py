@@ -47,6 +47,3 @@ def get_correction_result(id):
     url = f'https://intranet.hbtn.io/correction_requests/{id}.json'
     result = requests.get(url, params=params)
     return(result.json())
-
-
-print(get_correction_result(1415596))
