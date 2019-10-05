@@ -1,3 +1,5 @@
+![Checker Daddy Logo](https://i.imgur.com/DmvVN5L.png)
+
 # Checker Daddy
 A Holberton School checker tool that checks your progress on a given task and posts an inspiring message and GIF in a Slack channel to both encourage you and let you and your peers see your progress. It is deployed [here](https://checkerdaddy.herokuapp.com/) on Heroku.
 
