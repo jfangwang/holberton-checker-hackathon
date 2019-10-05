@@ -5,8 +5,8 @@ from random import randrange
 
 def post_slack():
     under_half = ["This is the start of a new adventure!", "Filler", "daddy", "betsy"]
-    under_half = ["This is the start of a new adventure!", "Filler", "daddy", "betsy"]
-    under_half = ["This is the start of a new adventure!", "Filler", "daddy", "betsy"]
+    over_half = ["This is the start of a new adventure!", "Filler", "daddy", "betsy"]
+    done = ["This is the start of a new adventure!", "Filler", "daddy", "betsy"]
     # if {completed_checks} < ({total_checks} / 2) - 1:
     if True:
         message = {
@@ -27,7 +27,7 @@ def post_slack():
                         "type": "section",
                         "text": {
                                     "type": "mrkdwn",
-                                    "text": "You'll get it!"
+                                    "text": over_half[randrange(len(under_half))]
                                 }
                     }
                     ]
@@ -39,7 +39,7 @@ def post_slack():
                         "type": "section",
                         "text": {
                                     "type": "mrkdwn",
-                                    "text": "Almost there!"
+                                    "text": done[randrange(len(under_half))]
                                 }
                     }
                     ]
