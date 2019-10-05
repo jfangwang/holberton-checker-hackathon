@@ -4,12 +4,12 @@ from random import randrange, choice
 import giphy
 
 
-def set_msg():
+def set_msg(_dict):
     gif_search = ["amazing", "way to go", "keep going", "great job", "kudos", "you're awesome"]
     # if {completed_checks} < ({total_checks} / 2) - 1:
     if True:
         message = {
-                        "text": msgs(0),
+                        "text": msgs(0, _dict),
                         "attachments": [
                             {
                                 "fallback": "Required plain-text summary of the attachment.",
@@ -21,7 +21,7 @@ def set_msg():
                     }
     elif {completed_checks} != {total_checks} and {completed_checks} >= {total_checks} / 2:
         message = {
-                        "text": msgs(1),
+                        "text": msgs(1, _dict),
                         "attachments": [
                             {
                                 "fallback": "Required plain-text summary of the attachment.",
@@ -31,7 +31,7 @@ def set_msg():
                     }
     else:
         message = {
-                        "text": msgs(2),
+                        "text": msgs(2, _dict),
                         "attachments": [
                             {
                                 "fallback": "Required plain-text summary of the attachment.",
@@ -42,8 +42,8 @@ def set_msg():
     return message
 
 
-def post_slack():
-    data = json.dumps(set_msg())
+def post_slack(_dict):
+    data = json.dumps(set_msg(_dict))
 
     url = 'https://hooks.slack.com/services/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'
     result = requests.post(url, data=data)
@@ -51,7 +51,8 @@ def post_slack():
     print(result.reason)
 
 
-def msgs(val):
+def msgs(val, _dict):
+    '''
     _dict = {
                 "user_name": "Joe",
                 "project_name": "Monty",
@@ -59,6 +60,8 @@ def msgs(val):
                 "completed_checks": 5,
                 "total_checks": 8
             }
+    '''
+    _dict["task_name"] = "FizzBuzz"
 
     if val == 0:
         under_half = ["{} / {} checks on {}: This is the start of a new adventure {}!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
