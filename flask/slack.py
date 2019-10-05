@@ -6,8 +6,11 @@ import giphy
 
 def set_msg(_dict):
     gif_search = ["amazing", "way to go", "keep going", "great job", "kudos", "you're awesome"]
-    # if {completed_checks} < ({total_checks} / 2) - 1:
+    print(_dict)
+    # if (_dict['completed_checks'] < (_dict['total_checks'] / 2) - 1):
     if True:
+        print(_dict['total_checks'] / 2) - 1
+        print(_dict['completed_checks'] < (_dict['total_checks'] / 2) - 1)
         message = {
                         "text": msgs(0, _dict),
                         "attachments": [
@@ -19,7 +22,7 @@ def set_msg(_dict):
                             }
                         ]
                     }
-    elif {completed_checks} != {total_checks} and {completed_checks} >= {total_checks} / 2:
+    elif _dict['completed_checks'] != _dict['total_checks'] and _dict['completed_checks'] >= _dict['total_checks'] / 2:
         message = {
                         "text": msgs(1, _dict),
                         "attachments": [
@@ -45,7 +48,7 @@ def set_msg(_dict):
 def post_slack(_dict):
     data = json.dumps(set_msg(_dict))
 
-    url = 'https://hooks.slack.com/services/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'
+    url = 'https://hooks.slack.com/services/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'
     result = requests.post(url, data=data)
     print(result.text)
     print(result.reason)

@@ -4,8 +4,10 @@ from checker import *
 import re
 import json
 import time
+import slack
 app = Flask(__name__)
 
+app.secret_key = "A0Zr98j/3yX R~XHH!jmN]LWX/,?RT"
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -49,9 +51,11 @@ def project():
                     task_corr_id = try_post.get('id')
                     get_results = get_correction_result(task_corr_id, session['auth_token'])
                     if get_results.get('delay'):
+                        print('delay')
                         time.sleep(get_results.get('delay'))
                     while get_results.get('status') != "Done" and get_results.get('status') != "Fail":
-                        time.sleep(1)
+                        time.sleep(3)
+                        print('waiting for correction to complete...')
                         get_results = get_correction_result(task_corr_id, session['auth_token'])
                     checks = get_results.get('result_display').get('checks')
                     passed = 0
@@ -64,6 +68,8 @@ def project():
                     big_dict['task_position'] = session['task_position']
                     big_dict['completed_checks'] = passed
                     big_dict['total_checks'] = len(checks)
+                    slack.post_slack(big_dict)
+                    return("Check out your slack channel!")
                     """ FINAL DICTIONARY HERE IN big_dict """
                 except Exception:
                     return render_template('project.html', error="Are you sure this task exists?")
