@@ -24,7 +24,9 @@ def set_msg(_dict):
                         "attachments": [
                             {
                                 "fallback": "Required plain-text summary of the attachment.",
-                                "image_url": "https://media.giphy.com/media/1kTKRsMWY44MAlV2QW/200w_d.gif",
+                                "title": "Checker Daddy",
+                                "author_icon": "https://img.icons8.com/cotton/64/000000/checkmark.png",
+                                "image_url": giphy.get_giphy(choice(gif_search))
                             }
                         ]
                     }
@@ -34,7 +36,9 @@ def set_msg(_dict):
                         "attachments": [
                             {
                                 "fallback": "Required plain-text summary of the attachment.",
-                                "image_url": "https://media.giphy.com/media/1kTKRsMWY44MAlV2QW/200w_d.gif",
+                                "title": "Checker Daddy",
+                                "author_icon": "https://img.icons8.com/cotton/64/000000/checkmark.png",
+                                "image_url": giphy.get_giphy(choice(gif_search))
                             }
                         ]
                     }
@@ -44,10 +48,8 @@ def set_msg(_dict):
 def post_slack(_dict):
     data = json.dumps(set_msg(_dict))
 
-    url = 'https://hooks.slack.com/services/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'
+    url = 'https://hooks.slack.com/services/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'
     result = requests.post(url, data=data)
-    print(result.text)
-    print(result.reason)
 
 
 def msgs(val, _dict):
@@ -74,7 +76,7 @@ def msgs(val, _dict):
         message = under_half[randrange(len(under_half))]
 
     elif val == 1:
-        over_half = ["{} / {} checks on {}: {}, ou are smarter than you think!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
+        over_half = ["{} / {} checks on {}: {}, you are smarter than you think!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
                       "{} / {} checks on {}: Get that checker money {}!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
                       "{} / {} checks on {}: Fight for your dreams {}, never let anyone break you down by saying that you can't do something!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
                       "{} / {} checks on {}: {}, you are doing a great job!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
@@ -82,7 +84,7 @@ def msgs(val, _dict):
                       "{} / {} checks on {}: You got this {}!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
                       "{} / {} checks on {}: {}, green checks are life's ways of saying that there is a bright future in store for you!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
                       "{} / {} checks on {}: Trusty Betsy's plan {}!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"])]
-        message = over_half[randrange(len(under_half))]
+        message = over_half[randrange(len(over_half))]
 
     else:
         done = ["{} / {} checks on {}: {}, green checker money baby!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
@@ -94,5 +96,5 @@ def msgs(val, _dict):
                 "{} / {} checks on {}: {} you believed in yourself and you made it!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
                 "{} / {} checks on {}: {}, May you forever be as happy as your are today!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"]),
                 "{} / {} checks on {}: Your dedication towards work is really inspiring {}!".format(_dict["completed_checks"], _dict["total_checks"], _dict["task_name"], _dict["user_name"])]
-        message = done[randrange(len(under_half))]
+        message = done[randrange(len(done))]
     return message
