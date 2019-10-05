@@ -6,11 +6,7 @@ import giphy
 
 def set_msg(_dict):
     gif_search = ["amazing", "way to go", "keep going", "great job", "kudos", "you're awesome"]
-    print(_dict)
-    # if (_dict['completed_checks'] < (_dict['total_checks'] / 2) - 1):
-    if True:
-        print(_dict['total_checks'] / 2) - 1
-        print(_dict['completed_checks'] < (_dict['total_checks'] / 2) - 1)
+    if (_dict['completed_checks'] < (_dict['total_checks'] / 2) - 1):
         message = {
                         "text": msgs(0, _dict),
                         "attachments": [
@@ -22,7 +18,7 @@ def set_msg(_dict):
                             }
                         ]
                     }
-    elif _dict['completed_checks'] != _dict['total_checks'] and _dict['completed_checks'] >= _dict['total_checks'] / 2:
+    elif _dict['completed_checks'] != _dict['total_checks'] and _dict['completed_checks'] >= (_dict['total_checks'] / 2):
         message = {
                         "text": msgs(1, _dict),
                         "attachments": [
