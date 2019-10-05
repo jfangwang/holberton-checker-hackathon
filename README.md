@@ -1,5 +1,5 @@
 # Checker Daddy
-A Holberton School checker tool.
+A Holberton School checker tool that checks your progress on a given task and posts an inspiring message and GIF in a Slack channel to both encourage you and let you and your peers see your progress.
 
 ## Requirements
 * Python 3.4+
@@ -14,9 +14,11 @@ A Holberton School checker tool.
 ![Checker Daddy Login Page](https://i.imgur.com/wXVbADp.png)
 5. In the `API Key` field, enter the API key that can be found on the intranet's "Tools" page under the header "Holberton's Intranet API Key".
 6. In the `Your Email` and `Your Password` fields, enter the email address and password with which you log into the intranet.
-7. If your credentials are not valid, you will be asked to fill in your information again.
+7. If your credentials are not valid, you will be prompted for your information again.
 8. Otherwise, paste a project's URL into the `Project URL` field and a task number into the `Task Number` field.
 ![Checker Daddy Project Page with Input Examples](https://i.imgur.com/YQuXxDG.png)
+9. If the task exists, you should be redirected to a page telling you to check your Slack channel. Otherwise, you will be prompted to enter the project/task info again.
+![Example Slack Post](https://i.imgur.com/w5S8wEe.png)
 
 ## Authors
 * Tim Assavarat (<721@holbertonschool.com>)
