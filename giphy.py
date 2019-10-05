@@ -11,4 +11,4 @@ def get_giphy(search):
     url = 'http://api.giphy.com/v1/gifs/search'
     res = requests.get(url, params=params)
     num = random.choice(range(50))
-    return(res.json()['data'][num]['embed_url'])
+    return(res.json()['data'][num]['images']['downsized']['url'])
