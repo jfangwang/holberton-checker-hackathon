@@ -37,6 +37,8 @@ def get_auth_token(api_key,
 
 def get_user_profile(auth_token):
     ''' Return JSON representation of a user. '''
+    if not auth_token:
+        return None
     params = {'auth_token': auth_token}
     url = 'https://intranet.hbtn.io/users/me.json'
     result = requests.get(url, params=params)

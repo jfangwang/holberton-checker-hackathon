@@ -16,7 +16,8 @@
             <div class="col-md text-center">
                 <h1 class="display-4">Checker Daddy</h1>
                 <h2>Please fill out your info</h2>
-                <form class="form-inlin mt-4" method="POST">
+                <h3 style="color: red; font-weight: bold">{{ error }}</h3>
+                <form class="form-inlin mt-4" method="POST" action="/login">
                     <div class="form-group">
                         <input type="api_key" class="form-control" name="api_key" id="inputAPI" aria-describedby="emailHelp" placeholder="API Key" required>
                     </div>

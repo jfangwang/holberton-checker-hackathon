@@ -15,13 +15,14 @@
         <div class="row w-50">
             <div class="col-md text-center">
                 <h1 class="display-4 text-center">Checker Daddy</h1>
+                <h3 style="color: red; font-weight: bold">{{ error }}</h3>
                 <h2 class="text-center">Please enter your project</h2>
-                <form class="form-inlin mt-4" method="GET">
+                <form class="form-inlin mt-4" method="POST" action="/project">
                     <div class="form-group">
-                        <input type="projectid" class="form-control" name="project" id="projectid" placeholder="Project Number" required>
+                        <input type="projectid" class="form-control" name="project" id="projectid" placeholder="Project Link URL" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="taskNumber" id="taskNumber" placeholder="Task Number" required>
+                        <input type="taskid" class="form-control" name="task_num" id="taskNumber" placeholder="Task Number" required>
                     </div>
                     <button type="submit" class="btn btn-primary px-5">Submit</button>
                 </form>
