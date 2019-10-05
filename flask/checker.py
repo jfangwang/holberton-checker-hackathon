@@ -32,7 +32,7 @@ def get_auth_token(api_key,
     json_ = (result.json())
     if json_.get('error'):
         return None
-    return json_['auth_token']
+    return json_
 
 
 def get_user_profile(auth_token):
@@ -78,7 +78,7 @@ def request_correction(task_id, auth_token):
 def get_correction_result(correction_id, auth_token):
     ''' Get the JSON representation of a correction result given the
     correction's ID. '''
-    params = {'auth_token': get_auth_token}
+    params = {'auth_token': auth_token}
     url = 'https://intranet.hbtn.io/correction_requests/{}.json'.format(
             correction_id)
     result = requests.get(url, params=params)
