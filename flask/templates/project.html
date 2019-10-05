@@ -12,11 +12,11 @@
   </head>
   <body style="background: #62bba7" class="text-white">
     <div class="container d-flex justify-content-center mt-5">
-        <div class="row w-50">
+        <div class="row w-60">
             <div class="col-md text-center">
-                <h1 class="display-4 text-center">Checker Daddy</h1>
+                <h1 class="display-2 text-center">Checker Daddy</h1>
                 <h3 style="color: red; font-weight: bold">{{ error }}</h3>
-                <h2 class="text-center">Please enter your project</h2>
+                <h2 class="display-4 text-center">Please enter your project</h2>
                 <form class="form-inlin mt-4" method="POST" action="/project">
                     <div class="form-group">
                         <input type="projectid" class="form-control" name="project" id="projectid" placeholder="Project Link URL" required>
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <input type="taskid" class="form-control" name="task_num" id="taskNumber" placeholder="Task Number" required>
                     </div>
-                    <button type="submit" class="btn btn-primary px-5 shadow-none" style="color:white ">Submit</button>
+                    <button type="submit" class="btn btn-primary px-5 py-2 shadow-none" style="color:white ">Submit</button>
                 </form>
             </div>
         </div>
